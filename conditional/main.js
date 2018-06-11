@@ -1,6 +1,7 @@
 new Vue({
 	el: '#app',
 	data: {
-		msg: 'Hola Mundo'
+		conected: true,
+		edad: 28
 	}
 });

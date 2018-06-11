@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Conditionals</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <h1 v-show="conected">Estoy Conectado!</h1> -->
+			<!-- <h1 v-if="conected">Estoy Conectado!</h1> -->
+			<h2 v-if="edad < 18"> No puedes entrar</h2>
+			<h3 v-else-if="edad > 200">Eres inmortal!!</h3>
+			<h4 v-else>Puedes entrar</h4>
+
+			<pre>{{ $data | json }}</pre>
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
