@@ -1,0 +1,26 @@
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Transitions Effects</title>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	</head>
+	<body>
+		<main id="app">
+			<!-- <div v-for="persona in personas" style="width: auto; margin: 0 5px; display: inline-block;">
+				<img :src="persona.picture.thumbnail" :alt="persona.name.first">
+				<p> {{ persona.name.first }} {{ persona.name.last }} </p>
+				<p> {{ persona.gender }} </p>
+			</div>
+			 -->
+			 <img v-for="persona in personas" :src="persona.picture.thumbnail" :alt="persona.name.first">
+
+			<pre>{{ $data }}</pre>
+
+		</main>
+		<script src="vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>

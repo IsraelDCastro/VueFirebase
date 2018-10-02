@@ -1,0 +1,34 @@
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Prop Validation</title>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	</head>
+	<body>
+		<div id="app">
+			<candidato v-for="candidato in candidatos" :nombre="candidato.name.first" :correo="candidato.email" :imagen="candidato.picture.thumbnail" :location="candidato.location"></candidato>	
+
+			<hr>
+			<pre>{{ $data }}</pre>
+
+		</div>
+		<template id="candidato-template">
+			<blockquote>
+				<img :src="imagen" align="right" alt="">
+				<h1>{{ nombre }}</h1>
+				<h2>{{ correo }}</h2>
+				<ul>
+					<li v-for="(value, key, index) in location">
+						{{value}}
+					</li>
+				</ul>
+			</blockquote>
+		</template>
+		
+		<script src="vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>

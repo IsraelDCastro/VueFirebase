@@ -1,0 +1,61 @@
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Custom Events</title>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+		  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		  <link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div id="app">
+			<button @click="mostrarExito = true ">Exito</button>
+			<button @click="mostrarError = true ">Error</button>
+			<button @click="mostrarAdvertencia = true ">Advertencia</button>
+			<alerta @ocultar="mostrarExito = false" v-show="mostrarExito" tipo="alerta--exito" posicion="alerta--arriba-derecha">
+				<template slot="header">
+					Todo ok :P
+				</template>
+				<template>
+					Este es el nuevo contenido del alerta :D
+				</template>
+				<template slot="footer">
+					Puede continuar con normalidad
+				</template>
+			</alerta>
+
+			<alerta @ocultar="mostrarError = false" v-show="mostrarError" tipo="alerta--error" posicion="alerta--arriba-izquierda">
+				<template slot="header">
+					Error Fatal XC
+				</template>
+				<template>
+					El mundo está a punto de implosionar
+				</template>
+				<template slot="footer">
+					RIP
+				</template>
+			</alerta>
+
+			<alerta @ocultar="mostrarAdvertencia = false" v-show="mostrarAdvertencia" tipo="alerta--advertencia" posicion="alerta--abajo-izquierda">
+				<template slot="header">
+					Atención
+				</template>
+				<template>
+					Este es el nuevo contenido del alerta :D
+				</template>
+				<template slot="footer">
+					Puede continuar con normalidad
+				</template>
+			</alerta>
+
+			<hr>
+			<pre>{{ $data }}</pre>
+
+		</div>
+
+		<script src="vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+		<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+		<script src="main.js"></script>
+
+	</body>
+</html>

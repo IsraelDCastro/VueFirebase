@@ -1,0 +1,44 @@
+ <html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Custom Input Components</title>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+		  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		  <link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div id="app">
+			<users>
+				<h1>Usuarios de mi startup</h1>
+			</users>
+		</div>
+		<template id="users-template">
+			<div>
+				<section class="cabecera">
+					<slot></slot>
+					<input type="search" placeholder="Filtrar usuarios" v-model="busqueda">
+				</section>
+				<hr>
+				<section class="usuarios">
+					<usuario :datos="user" v-for="user in filtrarUsuarios"></usuario>
+				</section>
+			</div>
+		</template>
+		<template id="user-template">
+			<div class="usuario">
+				<img align="left" :src="datos.foto" :alt="datos.nomnbre">
+				<section>
+					<h1>{{ datos.nombre }}</h1>
+					<small>{{ datos.correo }}</small>
+				</section>
+			</div>
+		</template>
+
+
+		<script src="vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>

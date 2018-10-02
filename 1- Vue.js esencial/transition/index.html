@@ -1,0 +1,81 @@
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Transitions Effects</title>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+		<style>
+		/*	Transiciones con CSS */
+			.aparecer-enter{
+				/*opacity: 0;*/
+				opacity: 0;
+				transform: translateX(10px);
+			}
+			.aparecer-enter-active {
+				transition: opacity 1s;
+				transform: translateX(10px);
+				/*opacity: 0;*/
+			}
+
+			.aparecer-leave-to{
+				opacity: 0;
+				transform: translateX(10px);
+				/*opacity: 0;*/
+			}
+			.aparecer-leave-active{
+				/*transition: opacity 1s;*/
+				transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+			}
+
+		/* Animaciones */
+			.bounce-enter-active {
+					animation: bounce-in .5s;
+				}
+			.bounce-leave-active {
+					animation: bounce-in .5s reverse;
+				}
+			@keyframes bounce-in {
+				0% {
+					transform: scale(0);
+				}
+				50% {
+					transform: scale(1.5);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="mostrar = !mostrar">Mostrar / Ocultar</button>
+			<!-- Transition -->
+			<transition name="aparecer" appear>
+				<h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
+			</transition>
+
+			<!-- Animation -->
+			<transition name="bounce">
+				<h1 v-if="mostrar" v-text="mensajes.animacion"></h1>
+			</transition>
+
+			<!-- AnimationCustom (animate.css) -->
+			<transition name="whatever" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+				<h1 v-if="mostrar" v-text="mensajes.animacionCustom"></h1>
+			</transition>
+
+			<!-- Transicion entre diferentes elementos -->
+			<transition name="aparecer" mode="out-in">
+				<h1 v-if="mostrar" v-text="mensajes.entreElementos" key="aparecer"></h1>
+				<h1 v-else key="ocultarse">No hay mensaje!</h1>
+			</transition>
+			<hr>
+
+			<pre>{{ $data }}</pre>
+
+		</div>
+		
+		<script src="vue.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Components Templates</title>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	</head>
+	<body>
+		<div id="app">
+			<elegir-ganador :listado="personas" inline-template>
+				<div>
+				<h1 v-if="ganador">El ganador es: {{ ganador }}</h1>
+				<template v-else>
+					<h1>Participantes</h1>
+					<ul>
+						<li v-for="persona in listado"> {{ persona }} </li>
+					</ul>
+				</template>
+				<button @click="elegirGanador()">Elegir Ganador</button>
+			</div>
+			</elegir-ganador>
+
+			<pre>{{ $data }}</pre>
+
+		</div>
+		
+		<!-- Con tag template -->
+		<!-- <template id="elegir-ganador">
+			<div>
+				<h1 v-if="ganador">El ganador es: {{ ganador }}</h1>
+				<template v-else>
+					<h1>Participantes</h1>
+					<ul>
+						<li v-for="persona in listado"> {{ persona }} </li>
+					</ul>
+				</template>
+				<button @click="elegirGanador()">Elegir Ganador</button>
+			</div>
+		</template> -->
+
+		<!-- Con script -->
+		<!-- <script id="elegir-ganador">
+			<div>
+				<h1 v-if="ganador">El ganador es: {{ ganador }}</h1>
+				<template v-else>
+					<h1>Participantes</h1>
+					<ul>
+						<li v-for="persona in listado"> {{ persona }} </li>
+					</ul>
+				</template>
+				<button @click="elegirGanador()">Elegir Ganador</button>
+			</div>
+		</script> -->
+		<script src="vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>

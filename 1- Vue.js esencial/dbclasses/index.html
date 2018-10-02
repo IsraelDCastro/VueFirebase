@@ -1,0 +1,33 @@
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>Vue Instance</title>
+		<style>
+			li{
+				cursor: pointer;
+			}
+			.completado{
+				text-decoration: line-through;
+				color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1>Tareas</h1>
+			<ul>
+				<li v-bind:class="{completado: tarea.completado}"
+				 v-for="tarea in tareas" v-on:click="completarTarea(tarea)">
+					{{ tarea.titulo }}
+				</li>
+			</ul>
+
+			<pre>{{ $data }}</pre>
+
+		</div>
+		
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="vue.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
